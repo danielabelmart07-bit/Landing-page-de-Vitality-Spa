@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vitaly Spa | El Lujo del Espacio y el Tiempo</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "primary": "#524d42",
+                            "on-primary": "#ffffff",
+                            "primary-container": "#c9c2b3",
+                            "on-primary-container": "#3d3930",
+                            "background": "#fef8f3",
+                            "on-background": "#1d1b19",
+                            "surface": "#fef8f3",
+                            "on-surface": "#1d1b19",
+                            "on-surface-variant": "#3d3932",
+                            "outline": "#6e6a61",
+                            "outline-variant": "#ccc6bb",
+                            "surface-container-low": "#f8f3ee",
+                            "surface-container": "#f2ede8",
+                            "surface-container-high": "#ede7e2",
+                            "surface-container-highest": "#e7e2dd"
+                        },
+                        borderRadius: {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        spacing: {
+                            "gutter": "32px",
+                            "container-max": "1200px"
+                        },
+                        fontFamily: {
+                            "display": ["Playfair Display", "serif"],
+                            "body": ["Plus Jakarta Sans", "sans-serif"]
+                        }
+                    }
+                }
+            }
+        } catch (_e) { }
+    </script>
+    
+    <style>
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-nav {
+            background-color: rgba(254, 248, 243, 0.85);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+
+    <!-- Navegación Principal -->
+    <header class="fixed top-0 w-full z-50 border-b border-outline-variant/50 glass-nav transition-all duration-300">
+        <nav class="flex justify-between items-center w-full px-6 md:px-gutter py-4 max-w-container-max mx-auto" aria-label="Navegación principal">
+            <a href="#" class="font-display text-xl md:text-2xl tracking-widest text-primary uppercase font-normal focus:outline-none focus:ring-2 focus:ring-primary">
+                Vitaly Spa
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="group relative text-xs uppercase tracking-widest font-medium text-on-surface-variant hover:text-primary py-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                    Servicios
+                    <span class="absolute bottom-0 left-1/2 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" aria-hidden="true"></span>
+                </a>
+                <a href="#rituales" class="group relative text-xs uppercase tracking-widest font-medium text-on-surface-variant hover:text-primary py-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                    Rituales
+                    <span class="absolute bottom-0 left-1/2 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" aria-hidden="true"></span>
+                </a>
+                <a href="#about" class="group relative text-xs uppercase tracking-widest font-medium text-on-surface-variant hover:text-primary py-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                    Nosotros
+                    <span class="absolute bottom-0 left-1/2 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" aria-hidden="true"></span>
+                </a>
+                <button class="group relative text-xs uppercase tracking-widest font-medium text-primary py-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                    Reservar
+                    <span class="absolute bottom-0 left-1/2 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <!-- Botón Menú Móvil -->
+            <button class="md:hidden text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Abrir menú de navegación">
+                <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" aria-label="Bienvenida">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfKxXRG1xCd-ef84mqyqVebjDB-F79v8sKtos-2mJhYvPXBenaEhZhecL1t7EFEj2424OFxoaG6zppxx-mCkB_RmoZY4o8fCXTcgWbN-uagq8lHxWR9U99mK-XvZ0ckjorHvCv-j9CmV4n_cTLfs9q38vhUiddPNyhWVyxeWghlwUCS82FUgL78wfL0pLLvnYFtph6q9N-fdsCtrxh5jXk6MA7L0PFnIXirD4mGp8vmfKJJj6mo-Y5" alt="Interior minimalista de Vitaly Spa con luz natural y banco de madera orgánica"/>
+                <div class="absolute inset-0 bg-background/40 backdrop-brightness-95" aria-hidden="true"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-6 md:px-gutter max-w-4xl mx-auto reveal-on-scroll">
+                <h1 class="font-display text-4xl md:text-6xl text-primary font-light mb-6 leading-tight">
+                    El Silencio del Alma
+                </h1>
+                <p class="text-base md:text-lg text-on-surface-variant mb-8 max-w-2xl mx-auto font-light">
+                    Un santuario de calma y bienestar holístico diseñado para tu desconexión total.
+                </p>
+                <div class="flex justify-center">
+                    <a href="#services" class="group relative text-xs uppercase tracking-widest font-medium text-primary py-2 inline-flex items-center gap-3 transition-colors duration-300">
+                        Descubre tu paz
+                        <span class="material-symbols-outlined text-sm" aria-hidden="true">east</span>
+                        <span class="absolute bottom-0 left-1/2 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-16 md:py-24 px-6 md:px-gutter max-w-container-max mx-auto" id="services" aria-labelledby="services-heading">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="text-xs uppercase tracking-widest font-medium text-primary mb-2 block">Nuestros Servicios</span>
+                <h2 id="services-heading" class="font-display text-2xl md:text-4xl text-on-background font-normal">Experiencias Curadas</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <article class="group bg-surface-container-low p-8 transition-all duration-300 hover:bg-surface-container border border-outline-variant/30 flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="mb-6 overflow-hidden aspect-[4/5]">
+                            <img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4hpY71JLuhT2HerQvFN3H-s2wp1YRvqxNS__abDELNW3r82S0aVHnT6ajffkj5aqOTcAMO-1BZ-0TmXDu-cE79A1SUYTlI305Ju3LqTYt41YeHlLTp-w-00ntcv_04NR9I8CgoKjyIrsbo-Rkhsgh_i9396EehLJZTiHJ_adEI0tcoDVovN8lHDsIEwXSI9oWxW5PoTh4ZWVBruJO3H-fCQ4KIGtGGlxdItmBeILiX8FT7oP-Atrd" alt="Masaje holístico con piedras calientes en spa"/>
+                        </div>
+                        <h3 class="font-display text-xl text-primary mb-3 font-normal">Masajes Holísticos</h3>
+                        <p class="text-sm text-on-surface-variant mb-6 font-light leading-relaxed">
+                            Técnicas ancestrales diseñadas para equilibrar cuerpo y mente mediante el tacto consciente.
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block text-xs uppercase tracking-widest font-medium text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors self-start" aria-label="Saber más sobre Masajes Holísticos">
+                        SABER MÁS
+                    </a>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="group bg-surface-container-low p-8 transition-all duration-300 hover:bg-surface-container border border-outline-variant/30 flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="mb-6 overflow-hidden aspect-[4/5]">
+                            <img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoGPqrtTNOn98zTzJYdxC02C3k_g0qOB2RAoEdDsJpKdc8Jk902_KT2VqGW08AR5kziP30PhKZOr-a3H_dpyAPvNv2mE2FFbEuNXR9jn5ZD_JOY4RyLuCH26H0kNLU4J-18hCmB-L1XFme9tveC-yOCozsNXrr36JalAn2ymvZyiM7SF0DjcUQpIL2nQlvTZF75AcpQSq9C-14CnxTnG0iDVNfmicKRu_EyBIgnbUDFouuhNKxSPSm" alt="Productos cosméticos orgánicos en envases de vidrio"/>
+                        </div>
+                        <h3 class="font-display text-xl text-primary mb-3 font-normal">Rituales de Belleza</h3>
+                        <p class="text-sm text-on-surface-variant mb-6 font-light leading-relaxed">
+                            Tratamientos faciales y corporales que utilizan ingredientes botánicos de la más alta pureza.
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block text-xs uppercase tracking-widest font-medium text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors self-start" aria-label="Saber más sobre Rituales de Belleza">
+                        SABER MÁS
+                    </a>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="group bg-surface-container-low p-8 transition-all duration-300 hover:bg-surface-container border border-outline-variant/30 flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="mb-6 overflow-hidden aspect-[4/5]">
+                            <img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwV2pIAOHtSONuBjGn1p2bcFtk2t6xmZzXvAf5XB84rghHIeeVpuqoHOLGF35bR1-A6Q2yAao5CFigeH-dH8EPR2Ei9EvWh9gBovcJr1uOw3ayW9T_gbAhXjXYMnMPHsZ_7u21zyjbb4BhPDhpxVDSOJPaIQ3bDOzEGVhB8Oi2ua-NDzhuwXWjyRsfRiVohdtv-pF3VWHsA91aCLGpaaUO5X2CLNg93OEtjrLyXC2cEg7bJlTOY1id" alt="Baño termal purificante con vapor y piedras"/>
+                        </div>
+                        <h3 class="font-display text-xl text-primary mb-3 font-normal">Baños Purificantes</h3>
+                        <p class="text-sm text-on-surface-variant mb-6 font-light leading-relaxed">
+                            Inmersiones en aguas termales y vapores aromáticos para una renovación celular profunda.
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block text-xs uppercase tracking-widest font-medium text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors self-start" aria-label="Saber más sobre Baños Purificantes">
+                        SABER MÁS
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Rituals Section -->
+        <section class="py-16 md:py-24 bg-surface-container-low" id="rituales" aria-labelledby="rituals-heading">
+            <div class="px-6 md:px-gutter max-w-container-max mx-auto">
+                <div class="text-center mb-16 max-w-3xl mx-auto reveal-on-scroll">
+                    <span class="text-xs uppercase tracking-widest font-medium text-primary mb-2 block">Experiencias Inmersivas</span>
+                    <h2 id="rituals-heading" class="font-display text-2xl md:text-4xl text-on-background mb-4">Rituales de Firma</h2>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Viajes sensoriales diseñados para restaurar la armonía interna a través de una secuencia de tratamientos coordinados.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Ritual Card 1 -->
+                    <article class="bg-surface border border-outline-variant/30 p-8 flex flex-col justify-between reveal-on-scroll">
+                        <div>
+                            <h3 class="font-display text-xl text-primary mb-2">Despertar del Sol</h3>
+                            <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">
+                                Exfoliación con sales marinas, masaje energizante y terapia de luz revitalizante.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-outline-variant/20 flex justify-between items-end">
+                            <div>
+                                <span class="block text-[10px] text-outline tracking-widest uppercase mb-1">Duración</span>
+                                <span class="text-sm text-on-background font-medium">90 min</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-[10px] text-outline tracking-widest uppercase mb-1">Precio</span>
+                                <span class="text-sm text-primary font-medium">Desde $145</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Ritual Card 2 -->
+                    <article class="bg-surface border border-outline-variant/30 p-8 flex flex-col justify-between reveal-on-scroll">
+                        <div>
+                            <h3 class="font-display text-xl text-primary mb-2">Paz Infinita</h3>
+                            <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">
+                                Masaje con piedras calientes, envoltura botánica y ritual de té ceremonial.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-outline-variant/20 flex justify-between items-end">
+                            <div>
+                                <span class="block text-[10px] text-outline tracking-widest uppercase mb-1">Duración</span>
+                                <span class="text-sm text-on-background font-medium">120 min</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-[10px] text-outline tracking-widest uppercase mb-1">Precio</span>
+                                <span class="text-sm text-primary font-medium">Desde $180</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Ritual Card 3 -->
+                    <article class="bg-surface border border-outline-variant/30 p-8 flex flex-col justify-between reveal-on-scroll">
+                        <div>
+                            <h3 class="font-display text-xl text-primary mb-2">Silencio Interior</h3>
+                            <p class="text-sm text-on-surface-variant mb-8 leading-relaxed">
+                                Inmersión profunda en aceites esenciales, masaje craneal y meditación guiada.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-outline-variant/20 flex justify-between items-end">
+                            <div>
+                                <span class="block text-[10px] text-outline tracking-widest uppercase mb-1">Duración</span>
+                                <span class="text-sm text-on-background font-medium">60 min</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-[10px] text-outline tracking-widest uppercase mb-1">Precio</span>
+                                <span class="text-sm text-primary font-medium">Desde $120</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-16 md:py-24 px-6 md:px-gutter max-w-container-max mx-auto overflow-hidden" id="about" aria-labelledby="about-heading">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative reveal-on-scroll">
+                    <div class="aspect-[4/5] bg-surface-container-high overflow-hidden">
+                        <img class="w-full h-full object-cover" src="img/spa.png" alt="Arquitectura minimalista del espacio de Vitaly Spa"/>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-6 reveal-on-scroll">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest font-medium text-primary mb-2 block">Nuestra Filosofía</span>
+                        <h2 id="about-heading" class="font-display text-2xl md:text-4xl text-on-background mb-4">El Lujo del Espacio y el Tiempo</h2>
+                        <p class="text-base text-on-surface-variant leading-relaxed">
+                            Fundado bajo la premisa de que el verdadero bienestar requiere desconexión total, Vitaly Spa nace como un refugio urbano donde el diseño minimalista y las terapias holísticas convergen.
+                        </p>
+                    </div>
+
+                    <blockquote class="text-base text-on-surface-variant italic border-l-2 border-primary/30 pl-4 py-1">
+                        "No somos solo un destino de spa; somos un compromiso con tu calma interior. Cada textura, cada aroma y cada silencio ha sido curado para devolverte a tu centro."
+                    </blockquote>
+
+                    <p class="text-base text-on-surface-variant leading-relaxed">
+                        Nuestro equipo de terapeutas combina décadas de conocimiento en anatomía y herboristería con una presencia consciente, asegurando que cada visita sea una transformación, no solo un tratamiento.
+                    </p>
+
+                    <div>
+                        <button class="group relative text-xs uppercase tracking-widest font-medium text-primary py-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                            Nuestra Historia
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="py-20 bg-surface-container-highest/30 border-y border-outline-variant/20" aria-label="Cita inspiracional">
+            <figure class="max-w-3xl mx-auto text-center px-6 reveal-on-scroll">
+                <span class="material-symbols-outlined text-primary mb-6" style="font-size: 40px;" aria-hidden="true">spa</span>
+                <blockquote class="font-display text-2xl md:text-3xl text-primary leading-relaxed italic font-light">
+                    "La verdadera belleza nace de la calma interior y el respeto por el espacio propio."
+                </blockquote>
+                <figcaption class="mt-6 text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+                    — Filosofía Vitaly
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="w-full border-t border-outline-variant/50 bg-surface">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-gutter py-12 max-w-container-max mx-auto gap-8">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <span class="font-display text-lg text-primary uppercase tracking-widest">Vitaly Spa</span>
+                <p class="text-sm text-on-surface-variant font-light">© 2026 Vitaly Spa. The Luxury of Space.</p>
+            </div>
+
+            <nav class="flex gap-8" aria-label="Enlaces legales">
+                <a class="text-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacidad</a>
+                <a class="text-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Términos</a>
+                <a class="text-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contacto</a>
+            </nav>
+
+            <div class="flex gap-4">
+                <a class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300" href="#" aria-label="Visitar sitio web principal">
+                    <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                </a>
+                <a class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-300" href="#" aria-label="Enviar un correo electrónico">
+                    <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de Animación Accesible -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
